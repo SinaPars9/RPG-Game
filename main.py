@@ -2,18 +2,27 @@ from characters import Player
 from shop import Shop
 from fight import Fight
 from stat_points import Stat
+from save_system import save_game,load_game,delete_save
 class main:
     stat = Stat()
     shop = Shop()
     fight = Fight()
-    player = Player('Sina',1000,10,1000)
+    player = None
+    def __init__(self):
+        self.player = load_game()
+        if self.player is None:
+            self.player = Player('Sina',100,15,100)
+            print('new player created')
+        else:
+            print('welcome back')
     def main_menu(self):
-        return ('1.Show status\n2.Show inventory\n3.Use item\n4.Level up\n5.Shop\n6.Fight\n7.Exit')
+        return ('1.Show status\n2.Show inventory\n3.Use item\n4.Level up\n5.Shop\n6.Fight\n'
+        '7.save game\n8.Load game\n9.exit')
     def choose_menu(self):
         while True:
             try:
                 choose = int(input(f'{self.main_menu()}\nchoose one : '))
-                if not (1<= choose <= 7):
+                if not (1<= choose <= 9):
                     raise ValueError
                 return choose
             except ValueError:
@@ -22,7 +31,7 @@ class main:
     def run(self):
         while True:
             choose = self.choose_menu()
-            if choose == 7 :
+            if choose == 9 :
                 print('Buy')
                 break
             if choose == 1 :
@@ -45,6 +54,15 @@ class main:
                 self.shop.main_buy(self.player)
             if choose == 6:
                 self.fight.start_battle(self.player)
+                if self.player.is_alive:
+                    save_game(self.player)
+            if choose == 7:
+                save_game(self.player)
+            if choose == 8:
+                new_player = load_game()
+                if new_player:
+                    self.player = new_player
+                    print('game loaded')   
 
 
 if __name__ == "__main__":
