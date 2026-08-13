@@ -1,0 +1,1 @@
+player.progress.stat_points >= self.stat_usage
