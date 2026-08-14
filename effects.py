@@ -11,7 +11,7 @@ class Effects:
         return self.duration <=0
     def on_expierd(self,target):
         pass
-class Posion(Effects):
+class Poison(Effects):
     def __init__(self,):
         super().__init__('poison', duration = 4)
         self.damage = 3

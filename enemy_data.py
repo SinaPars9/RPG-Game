@@ -1,6 +1,6 @@
 from characters import Enemy
 from items import Weapon, Shield, Potion
-from skills import Attack , Miss , Heavyattack , Heal , CriticalAttack , PoisionAttack,StunAttack,BurnAttack
+from skills import Attack , Miss , Heavyattack , Heal , CriticalAttack , PoisonAttack,StunAttack,BurnAttack
 import random
 
 def create_slime():
@@ -57,7 +57,7 @@ def create_wolf():
     skills=[
         Attack('Normal Attack'),
         Miss('Miss'),
-        CriticalAttack('Crti Attack'),
+        CriticalAttack('Crit Attack'),
     ]
     return Enemy(
         "Wolf",
@@ -80,7 +80,7 @@ def create_skeleton():
     skills=[
         Attack('Normal Attack'),
         Miss('Miss'),
-        CriticalAttack('Crti Attack'),
+        CriticalAttack('Crit Attack'),
     ]      
     return Enemy(
         "Skeleton",
@@ -103,9 +103,9 @@ def create_bandit():
     skills=[
         Attack('Normal Attack'),
         Miss('Miss'),
-        CriticalAttack('Crti Attack'),
+        CriticalAttack('Crit Attack'),
         Heal('self Heal'),
-        PoisionAttack('Posion Attack')
+        PoisonAttack('Poison Attack')
     ]    
     return Enemy(
         "Bandit",
@@ -129,7 +129,7 @@ def create_orc():
     skills=[
         Attack('Normal Attack'),
         Miss('Miss'),
-        CriticalAttack('Crti Attack'),
+        CriticalAttack('Crit Attack'),
         Heal('self Heal'),
         Heavyattack('heavy Attack'),
         StunAttack('Stun Attack')
@@ -155,11 +155,11 @@ def create_dark_mage():
     skills=[
         Attack('Normal Attack'),
         Miss('Miss'),
-        CriticalAttack('Crti Attack'),
+        CriticalAttack('Crit Attack'),
         Heal('self Heal'),
         StunAttack('Stun Attack'),
         BurnAttack('Burn Attack'),
-        PoisionAttack('Posion Attack')
+        PoisonAttack('Poison Attack')
     ]    
     return Enemy(
         "Dark Mage",
@@ -182,7 +182,7 @@ def create_troll():
     skills=[
         Attack('Normal Attack'),
         Miss('Miss'),
-        CriticalAttack('Crti Attack'),
+        CriticalAttack('Crit Attack'),
         Heavyattack('heavy Attack'),
         StunAttack('Stun Attack')
     ]  
@@ -207,9 +207,9 @@ def create_vampire():
     skills =[    
         Attack('Normal Attack'),
         Miss('Miss'),
-        CriticalAttack('Crti Attack'),
+        CriticalAttack('Crit Attack'),
         Heal('self Heal'),
-        PoisionAttack('Posion Attack'),
+        PoisonAttack('Poison Attack'),
         StunAttack('Stun Attack')
     ] 
     return Enemy(
@@ -232,7 +232,7 @@ def create_demon():
     skills =[    
         Attack('Normal Attack'),
         Miss('Miss'),
-        CriticalAttack('Crti Attack'),
+        CriticalAttack('Crit Attack'),
         Heal('self Heal'),
         Heavyattack('heavy Attack'),
         BurnAttack('Burn Attack')
@@ -258,7 +258,7 @@ def create_dragon():
     skills =[    
         Attack('Normal Attack'),
         Miss('Miss'),
-        CriticalAttack('Crti Attack'),
+        CriticalAttack('Crit Attack'),
         Heal('self Heal'),
         Heavyattack('heavy Attack'),
         BurnAttack('Burn Attack'),

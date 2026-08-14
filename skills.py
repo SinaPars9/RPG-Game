@@ -1,5 +1,5 @@
 import random
-from effects import Posion , Stun , Burn
+from effects import Poison , Stun , Burn
 class Skill:
     def __init__(self,name,cooldown = 0):
         self.name = name
@@ -70,13 +70,13 @@ class DoubleAttack(Skill):
                 break
         return total_damage , dead , msg
 
-class PoisionAttack(Skill):
+class PoisonAttack(Skill):
     def __init__(self, name, cooldown=3):
         super().__init__(name, cooldown)
     def use(self, user, target):
         damage = user.damage
         dead = target.take_damage(damage)
-        target.add_effect(Posion())
+        target.add_effect(Poison())
         return damage , dead , (f'{user.name} poisoned {target.name} for {damage} Damage')
 
 class StunAttack(Skill):
