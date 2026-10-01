@@ -1,98 +1,236 @@
-# 🎮 RPG Battle Game - بازی نقش‌آفرینی ساده با پایتون
+# RPG Battle Game
 
-سلام! به اولین بازی نقش‌آفرینی‌ام خوش آمدید.  
+A command-line RPG battle game built with Python, focused on Object-Oriented Programming, modular system design, and game mechanics.
 
-من یک مبتدی خودآموز هستم که تازه وارد دنیای برنامه‌نویسی شدم. این بازی رو برای یادگیری عمیق‌تر برنامه‌نویسی شی‌گرا (OOP) و طراحی سیستم‌های پیچیده‌تر ساختم. اگر تجربه‌ای دارید و می‌توانید کمکی کنید تا این پروژه را بهتر کنم، خیلی خوشحال می‌شوم. هر نظری، حتی کوچک‌ترین نکته، برایم ارزشمند است.
+The player takes the role of an adventurer who fights different enemies, earns experience and gold, upgrades their character, manages equipment, and progresses through increasingly difficult battles.
 
----
+## Features
 
-## 🧙 درباره بازی
+* **Turn-Based Combat** — Player and enemies take turns attacking
+* **11 Enemy Types** — Slime, Goblin, Wolf, Skeleton, Bandit, Orc, Dark Mage, Troll, Vampire, Demon, and Dragon
+* **Enemy Skills** — Heavy attacks, critical attacks, healing, poison attacks, stun attacks, fire attacks, and more
+* **Status Effects** — Poison, stun, and burn with periodic damage
+* **Cooldown System** — Special abilities have cooldowns
+* **Leveling System** — Gain experience and level up
+* **Stat Points** — Earn upgrade points when leveling up
+* **Inventory System** — Manage items with weight and quantity limits
+* **Equipment System** — Equip and switch between different weapons and shields
+* **Shop System** — Buy weapons, shields, and potions
+* **Loot System** — Enemies can drop valuable items
+* **Random Rewards** — Battles can provide different rewards
+* **Command-Line Interface** — The entire game runs directly in the terminal
 
-این یک بازی نقش‌آفرینی ساده (RPG) در محیط خط فرمان است که در آن شما نقش یک ماجراجو را دارید. می‌توانید با دشمنان مختلف بجنگید، تجهیزات بخرید، سطح‌آپ کنید و پیشرفت کنید.
+## Gameplay
 
-**داستان بازی**: شما یک قهرمان تازه‌کار هستید که باید با انواع موجودات افسانه‌ای مبارزه کنید، طلا جمع کنید، تجهیزات خود را ارتقا دهید و به یک قهرمان افسانه‌ای تبدیل شوید. هر دشمنی که شکست دهید، به شما طلا، تجربه و گاهی غارت‌های ارزشمند پاداش می‌دهد.
-1. Show status       (مشاهده وضعیت شخصیت)
-2. Show inventory    (مشاهده موجودی)
-3. Use item          (استفاده از آیتم)
-4. Level up          (ارتقاء سطح)
-5. Shop              (رفتن به فروشگاه)
-6. Fight             (شروع نبرد)
-7. Exit              (خروج از بازی)
----
-نکات مهم:
+The player can perform actions such as:
 
-    در مبارزه، شما و دشمن به نوبت حمله می‌کنید.
+```text
+1. Show status
+2. Show inventory
+3. Use item
+4. Level up
+5. Shop
+6. Fight
+7. Exit
+```
 
-    دشمنان ممکن است از مهارت‌های ویژه استفاده کنند.
+During combat, the player and enemy attack each other in turns.
 
-    بعد از هر نبرد، طلا و تجربه دریافت می‌کنید.
+Enemies can use different abilities depending on their type, while the player can use items, manage equipment, and improve their character through the progression system.
 
-    با جمع‌آوری تجربه کافی، سطح شما بالا می‌رود و امتیازات ارتقاء دریافت می‌کنید.
+After defeating an enemy, the player receives experience and gold, and may also receive loot.
 
-    از فروشگاه می‌توانید سلاح، سپر و معجون بخرید.
+## Game Systems
 
-    موجودی شما محدودیت وزن و تعداد دارد.
-## ✨ قابلیت‌های بازی
+### Combat
 
-- **سیستم نبرد نوبتی**: شما و دشمن به نوبت حمله می‌کنید.
-- **۱۱ نوع دشمن متفاوت**:
-  - اسلایم، گابلین، گرگ، اسکلت، راهزن، ارک، جادوگر سیاه، ترول، خون‌آشام، دیو، اژدها
-- **مهارت‌های ویژه دشمنان**: حمله عادی، حمله سنگین، حمله بحرانی، خوددرمانی، حمله سمی، حمله گیج‌کننده، حمله آتش‌زا
-- **اثرات وضعیتی**: مسمومیت، گیج‌شدگی، سوختگی (هر کدام با آسیب‌های دوره‌ای)
-- **سیستم سرد شدن مهارت‌ها (Cooldown)**
-- **سیستم سطح‌بندی و ارتقاء**: با کسب تجربه، سطح شما بالا می‌رود و امتیازات ارتقاء دریافت می‌کنید.
-- **سیستم موجودی (Inventory)**: با محدودیت وزن و تعداد آیتم‌ها
-- **تجهیزات قابل خرید و تعویض**: سلاح‌ها و سپرهای متنوع
-- **فروشگاه**: خرید انواع سلاح، سپر و معجون
-- **سیستم غارت**: دشمنان ممکن است آیتم‌های ارزشمند رها کنند
-- **پاداش‌های تصادفی**: هر مبارزه پاداش‌های متفاوتی دارد
+The combat system is turn-based. Each battle involves the player and an enemy taking actions in sequence.
 
----
+Enemies can perform different types of attacks and abilities, including:
 
-## 🛠 پیش‌نیازها
+* Normal attacks
+* Heavy attacks
+* Critical attacks
+* Healing
+* Poison attacks
+* Stun attacks
+* Fire attacks
 
-- **پایتون ۳.۸ یا بالاتر** نصب باشد.
-- کتابخانه‌ی خاصی نیاز نیست (همه کدها با کتابخانه‌های استاندارد پایتون نوشته شده‌اند).
+### Status Effects
 
----
+Some abilities can apply status effects to the player.
+
+Currently supported effects include:
+
+* Poison
+* Stun
+* Burn
+
+These effects can cause additional damage or affect the player's actions during combat.
+
+### Character Progression
+
+Players gain experience from battles.
+
+When enough experience is collected, the character can level up and receive stat points that can be used for further progression.
+
+### Inventory
+
+The inventory system manages the player's items.
+
+Items are limited by:
+
+* Weight
+* Quantity
+
+This adds resource management to the gameplay.
+
+### Equipment
+
+Players can obtain and equip different weapons and shields.
+
+Equipment affects the character's combat capabilities and can be purchased from the shop.
+
+### Shop
+
+The shop allows players to purchase:
+
+* Weapons
+* Shields
+* Potions
+
+Gold earned from battles can be used to improve the player's equipment and resources.
+
+### Loot
+
+Enemies can drop valuable items after being defeated.
+
+Loot and battle rewards introduce an element of randomness to progression.
+
+## Project Structure
+
+```text
 RPG-Game/
-├── main.py           # نقطه ورود بازی و منوی اصلی
-├── characters.py     # کلاس‌های شخصیت (بازیکن، دشمن، پیشرفت)
-├── items.py          # کلاس‌های آیتم‌ها (سلاح، سپر، معجون)
-├── inventory.py      # مدیریت موجودی بازیکن
-├── equipments.py     # مدیریت تجهیزات (سلاح و سپر مجهز)
-├── shop.py           # سیستم فروشگاه
-├── fight.py          # سیستم نبرد
-├── skills.py         # مهارت‌های دشمنان
-├── effects.py        # اثرات وضعیتی (مسمومیت، گیجی، سوختگی)
-├── enemy_data.py     # داده‌های دشمنان (۱۱ نوع مختلف)
-├── stat_points.py    # سیستم ارتقاء سطح و امتیازات
-└── todo.md           # لیست کارهای آینده
-## 📦 نصب و راه‌اندازی
+│
+├── main.py
+├── characters.py
+├── items.py
+├── inventory.py
+├── equipments.py
+├── shop.py
+├── fight.py
+├── skills.py
+├── effects.py
+├── enemy_data.py
+├── stat_points.py
+└── todo.md
+```
 
-### روش اول (کلون کردن با Git - پیشنهادی)
+### Main Components
 
-۱. مخزن را کلون کنید:
+**`main.py`**
+
+Entry point of the game and main menu.
+
+**`characters.py`**
+
+Contains character-related classes, including the player, enemies, and progression logic.
+
+**`items.py`**
+
+Defines item-related classes such as weapons, shields, and potions.
+
+**`inventory.py`**
+
+Handles the player's inventory and its limitations.
+
+**`equipments.py`**
+
+Manages equipped weapons and shields.
+
+**`shop.py`**
+
+Implements the in-game shop and purchasing system.
+
+**`fight.py`**
+
+Contains the main combat logic.
+
+**`skills.py`**
+
+Defines enemy skills and special abilities.
+
+**`effects.py`**
+
+Handles status effects such as poison, stun, and burn.
+
+**`enemy_data.py`**
+
+Contains data for the game's different enemy types.
+
+**`stat_points.py`**
+
+Handles character upgrades and stat points received through leveling.
+
+## Requirements
+
+* Python 3.8+
+* No external Python packages are required
+
+The game uses only Python's standard library.
+
+## Installation
+
+Clone the repository:
+
 ```bash
 git clone https://github.com/SinaPars9/RPG-Game.git
-چطور می‌توانید کمک کنید؟
+cd RPG-Game
+```
 
-من یک برنامه‌نویس مبتدی و خودآموز هستم و این پروژه را برای یادگیری ساختم. اگر:
+## Running the Game
 
-    تجربه‌ای در برنامه‌نویسی پایتون دارید و می‌خواهید نکته‌ای بگویید.
+Run the main file:
 
-    باگ یا مشکلی پیدا کردید.
+```bash
+python main.py
+```
 
-    ایده‌ای برای بهبود بازی دارید.
+The game will start in the terminal and display the main menu.
 
-    حتی یک تغییر کوچک پیشنهاد دارید (مثل بهتر کردن نام متغیرها).
+## Project Goals
 
-لطفاً به من بگویید! می‌توانید از طریق:
+This project was built as a hands-on Python project to practice:
 
-    Issues (گزارش باگ یا پیشنهاد)
+* Python fundamentals
+* Object-Oriented Programming
+* Classes and inheritance
+* Modular application design
+* Managing interactions between multiple systems
+* Data structures
+* Game logic
+* State management
+* Randomized game mechanics
+* Designing larger Python projects
 
-    Pull Requests (ارسال تغییرات)
+The project gradually evolved from a simple RPG concept into a multi-module system containing combat, inventory, equipment, skills, status effects, progression, shops, and loot.
 
-    یا حتی یک پیام ساده در بخش Discussions (اگر فعال باشد)
+## Future Improvements
 
-هر کمکی، حتی کوچک‌ترین، برای من ارزشمند است و به من کمک می‌کند تا بهتر شوم
+Possible future improvements include:
+
+* Expanding the combat system
+* Adding more enemies and abilities
+* Improving game balance
+* Expanding the equipment and item systems
+* Improving the progression system
+* Adding save/load functionality
+* Adding more gameplay events and mechanics
+* Further refactoring and modularization
+
+## License
+
+This project is licensed under the MIT License.
+
+```
+```
